@@ -1,21 +1,23 @@
 package entity;
 
-public class Audio extends Fichier implements Affichable, Lisible {
+public class Audio extends Fichier {
+    private int duree; // secondes
 
-    private double duree; // secondes
-
-    public Audio(String nom, double taille, String extension, double duree) {
-        super(nom, taille, extension);
+    public Audio(String nom, double taille, String dateCreation, String extension, int duree) {
+        super(nom, taille, dateCreation, extension);
         this.duree = duree;
     }
 
-    @Override
-    public void afficherInfos() {
-        System.out.println("Audio : " + nom + " (" + extension + "), " + taille + " Ko, durée : " + duree + " sec");
-    }
+    public int getDuree() { return duree; }
+    public void setDuree(int duree) { this.duree = duree; }
 
     @Override
-    public void lire() {
-        System.out.println("Lecture de l'audio : " + nom);
+    public void afficher() {
+        System.out.println("=== Fichier Audio ===");
+        System.out.println("Nom : " + nom);
+        System.out.println("Taille : " + taille + " KB");
+        System.out.println("Date : " + dateCreation);
+        System.out.println("Extension : " + extension);
+        System.out.println("Durée : " + duree + " sec");
     }
 }

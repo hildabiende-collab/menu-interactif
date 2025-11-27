@@ -1,18 +1,23 @@
 package entity;
 
-public class Image extends Fichier implements Affichable {
+public class Image extends Fichier {
+    private int resolution;
 
-    private int largeur;
-    private int hauteur;
-
-    public Image(String nom, double taille, String extension, int largeur, int hauteur) {
-        super(nom, taille, extension);
-        this.largeur = largeur;
-        this.hauteur = hauteur;
+    public Image(String nom, double taille, String dateCreation, String extension, int resolution) {
+        super(nom, taille, dateCreation, extension);
+        this.resolution = resolution;
     }
 
+    public int getResolution() { return resolution; }
+    public void setResolution(int resolution) { this.resolution = resolution; }
+
     @Override
-    public void afficherInfos() {
-        System.out.println("Image : " + nom + " (" + extension + "), " + taille + " Ko, " + largeur + "x" + hauteur);
+    public void afficher() {
+        System.out.println("=== Fichier Image ===");
+        System.out.println("Nom : " + nom);
+        System.out.println("Taille : " + taille + " KB");
+        System.out.println("Date : " + dateCreation);
+        System.out.println("Extension : " + extension);
+        System.out.println("Résolution : " + resolution);
     }
 }

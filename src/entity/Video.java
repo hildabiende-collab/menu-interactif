@@ -1,21 +1,23 @@
 package entity;
 
-public class Video extends Fichier implements Affichable, Lisible {
+public class Video extends Fichier {
+    private int qualite; // ex : 720, 1080
 
-    private double duree; // secondes
-
-    public Video(String nom, double taille, String extension, double duree) {
-        super(nom, taille, extension);
-        this.duree = duree;
+    public Video(String nom, double taille, String dateCreation, String extension, int qualite) {
+        super(nom, taille, dateCreation, extension);
+        this.qualite = qualite;
     }
 
-    @Override
-    public void afficherInfos() {
-        System.out.println("Vidéo : " + nom + " (" + extension + "), " + taille + " Ko, durée : " + duree + " sec");
-    }
+    public int getQualite() { return qualite; }
+    public void setQualite(int qualite) { this.qualite = qualite; }
 
     @Override
-    public void lire() {
-        System.out.println("Lecture de la vidéo : " + nom);
+    public void afficher() {
+        System.out.println("=== Fichier Vidéo ===");
+        System.out.println("Nom : " + nom);
+        System.out.println("Taille : " + taille + " KB");
+        System.out.println("Date : " + dateCreation);
+        System.out.println("Extension : " + extension);
+        System.out.println("Qualité : " + qualite);
     }
 }

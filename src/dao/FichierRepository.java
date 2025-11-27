@@ -1,9 +1,16 @@
 package dao;
 
 import entity.Fichier;
-import java.util.List;
 
 public interface FichierRepository {
-    void save(List<Fichier> fichiers);
-    List<Fichier> load();
+
+    void ajouter(Fichier f);
+
+    void afficher();
+
+    void supprimer(String nom);
+
+    void sauvegarderTXT(String nomFichier);
+
+    void chargerTXT(String nomFichier);
 }
